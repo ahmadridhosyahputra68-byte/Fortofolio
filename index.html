@@ -1,1041 +1,1125 @@
-index.html.
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portfolio | Video Editor & Designer</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-<style>
-:root {
-  --bg: #080b12;
-  --surface: #101622;
-  --surface2: #151e2d;
-  --blue: #3985ff;
-  --blue2: #65a2ff;
-  --white: #f5f7fb;
-  --muted: #929cad;
-  --border: rgba(255,255,255,.09);
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  scroll-behavior: smooth;
-}
-
-body {
-  background: var(--bg);
-  color: var(--white);
-  font-family: 'Inter', sans-serif;
-  overflow-x: hidden;
-}
-
-a { text-decoration: none; color: inherit; }
-
-.container {
-  width: 86%;
-  max-width: 1250px;
-  margin: auto;
-}
-
-nav {
-  position: fixed;
-  z-index: 100;
-  top: 0;
-  width: 100%;
-  background: rgba(8,11,18,.88);
-  backdrop-filter: blur(18px);
-  border-bottom: 1px solid var(--border);
-}
-
-.nav-inner {
-  width: 86%;
-  max-width: 1250px;
-  margin: auto;
-  height: 78px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.logo {
-  font-size: 21px;
-  font-weight: 900;
-  letter-spacing: -1px;
-}
-
-.logo span { color: var(--blue); }
-
-.nav-links {
-  display: flex;
-  gap: 30px;
-}
-
-.nav-links a {
-  font-size: 12px;
-  color: var(--muted);
-  transition: .3s;
-}
-
-.nav-links a:hover { color: var(--blue2); }
-
-.menu-btn {
-  display: none;
-  background: none;
-  border: 0;
-  color: white;
-  font-size: 25px;
-  cursor: pointer;
-}
-
-/* HERO */
-
-.hero {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  padding: 140px 0 90px;
-  position: relative;
-  overflow: hidden;
-}
-
-.hero::before {
-  content: "";
-  position: absolute;
-  width: 600px;
-  height: 600px;
-  border-radius: 50%;
-  background: #1764ff;
-  filter: blur(180px);
-  opacity: .15;
-  top: 5%;
-  right: -15%;
-}
-
-.hero-grid {
-  display: grid;
-  grid-template-columns: 1.2fr .8fr;
-  gap: 65px;
-  align-items: center;
-  position: relative;
-}
-
-.availability {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  border: 1px solid var(--border);
-  padding: 11px 17px;
-  border-radius: 30px;
-  color: #b6c7e4;
-  font-size: 11px;
-  background: #111a29;
-}
-
-.dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #43dc91;
-  box-shadow: 0 0 12px #43dc91;
-}
-
-.hero h1 {
-  font-size: clamp(43px, 6vw, 78px);
-  letter-spacing: -4px;
-  line-height: 1.06;
-  margin: 30px 0 22px;
-  font-weight: 900;
-}
-
-.hero h1 span {
-  color: var(--blue);
-}
-
-.hero-desc {
-  color: var(--muted);
-  font-size: 14px;
-  line-height: 1.9;
-  max-width: 570px;
-}
-
-.hero-actions {
-  display: flex;
-  gap: 14px;
-  flex-wrap: wrap;
-  margin-top: 33px;
-}
-
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  padding: 15px 23px;
-  border-radius: 8px;
-  font-size: 12px;
-  font-weight: 700;
-  transition: .3s;
-  cursor: pointer;
-}
-
-.btn-primary {
-  background: var(--blue);
-  color: white;
-}
-
-.btn-primary:hover {
-  background: #1765e8;
-  transform: translateY(-3px);
-  box-shadow: 0 8px 30px #3985ff44;
-}
-
-.btn-outline {
-  border: 1px solid var(--border);
-  color: white;
-}
-
-.btn-outline:hover {
-  border-color: var(--blue);
-  color: var(--blue2);
-}
-
-.profile-wrap {
-  position: relative;
-  max-width: 390px;
-  margin: auto;
-}
-
-.profile-box {
-  width: 100%;
-  aspect-ratio: 4 / 5;
-  border-radius: 22px;
-  overflow: hidden;
-  border: 1px solid #3985ff66;
-  background: linear-gradient(145deg,#182d50,#111622);
-}
-
-.profile-box img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.profile-label {
-  position: absolute;
-  bottom: 20px;
-  left: -35px;
-  padding: 17px 22px;
-  background: #151e2df0;
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  box-shadow: 0 10px 40px #0008;
-}
-
-.profile-label strong { font-size: 13px; }
-.profile-label p {
-  font-size: 10px;
-  color: var(--muted);
-  margin-top: 5px;
-}
-
-/* GENERAL */
-
-section { padding: 105px 0; }
-
-.section-label {
-  color: var(--blue2);
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 3px;
-  margin-bottom: 15px;
-}
-
-.section-title {
-  font-size: clamp(30px,4vw,45px);
-  letter-spacing: -2px;
-  font-weight: 800;
-}
-
-.section-desc {
-  font-size: 13px;
-  line-height: 1.8;
-  color: var(--muted);
-  margin-top: 14px;
-}
-
-.heading { margin-bottom: 42px; }
-
-/* ABOUT */
-
-.about { background: var(--surface); }
-
-.about-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 70px;
-  align-items: center;
-}
-
-.about-text p {
-  color: var(--muted);
-  line-height: 2;
-  font-size: 13px;
-  margin-top: 20px;
-}
-
-.stats {
-  display: grid;
-  grid-template-columns: repeat(2,1fr);
-  gap: 15px;
-  margin-top: 28px;
-}
-
-.stat {
-  background: var(--surface2);
-  padding: 23px;
-  border: 1px solid var(--border);
-  border-radius: 12px;
-}
-
-.stat h3 {
-  font-size: 29px;
-  color: var(--blue2);
-}
-
-.stat p {
-  font-size: 11px;
-  color: var(--muted);
-  margin-top: 6px;
-}
-
-.skills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 25px;
-}
-
-.skill {
-  padding: 13px 17px;
-  background: var(--surface2);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  font-size: 12px;
-  color: #c9d4e5;
-}
-
-/* PORTFOLIO */
-
-.tabs {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 30px;
-  flex-wrap: wrap;
-}
-
-.tab {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  color: var(--muted);
-  padding: 12px 21px;
-  border-radius: 7px;
-  cursor: pointer;
-  font-size: 12px;
-}
-
-.tab.active {
-  background: var(--blue);
-  color: white;
-  border-color: var(--blue);
-}
-
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(3,1fr);
-  gap: 22px;
-}
-
-.work-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 13px;
-  overflow: hidden;
-  transition: .3s;
-}
-
-.work-card:hover {
-  transform: translateY(-7px);
-  border-color: var(--blue);
-}
-
-.work-image {
-  position: relative;
-  aspect-ratio: 4/3;
-  background: var(--surface2);
-  overflow: hidden;
-}
-
-.work-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: .5s;
-}
-
-.work-card:hover img { transform: scale(1.06); }
-
-.play {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  background: #3985ffeb;
-  display: grid;
-  place-items: center;
-  font-size: 20px;
-  cursor: pointer;
-  border: 0;
-  color: white;
-}
-
-.work-info { padding: 19px; }
-
-.work-info h3 {
-  font-size: 14px;
-  margin-bottom: 9px;
-}
-
-.work-info p {
-  font-size: 11px;
-  color: var(--muted);
-}
-
-.work-card[hidden] { display: none; }
-
-/* SERVICES */
-
-.services { background: var(--surface); }
-
-.service-grid {
-  display: grid;
-  grid-template-columns: repeat(3,1fr);
-  gap: 20px;
-}
-
-.service-card {
-  padding: 30px;
-  background: var(--surface2);
-  border: 1px solid var(--border);
-  border-radius: 13px;
-  transition: .3s;
-}
-
-.service-card:hover {
-  border-color: var(--blue);
-  transform: translateY(-5px);
-}
-
-.service-icon {
-  font-size: 27px;
-  color: var(--blue2);
-}
-
-.service-card h3 {
-  margin: 23px 0 12px;
-  font-size: 16px;
-}
-
-.service-card p {
-  color: var(--muted);
-  font-size: 12px;
-  line-height: 1.8;
-}
-
-/* CV */
-
-.cv-box {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 30px;
-  padding: 40px;
-  border-radius: 16px;
-  background: linear-gradient(110deg,#13294b,#101724);
-  border: 1px solid #3985ff55;
-}
-
-.cv-box p {
-  color: #b4c3d9;
-  font-size: 12px;
-  line-height: 1.8;
-  margin-top: 12px;
-}
-
-/* CONTACT */
-
-.contact {
-  background: var(--surface);
-  text-align: center;
-}
-
-.contact .section-desc {
-  max-width: 500px;
-  margin: 15px auto 25px;
-}
-
-.contact-links {
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-
-/* FOOTER */
-
-footer {
-  padding: 28px 0;
-  text-align: center;
-  border-top: 1px solid var(--border);
-  color: var(--muted);
-  font-size: 11px;
-}
-
-/* MODAL */
-
-.modal {
-  display: none;
-  position: fixed;
-  inset: 0;
-  z-index: 200;
-  background: #000e;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-}
-
-.modal.show { display: flex; }
-
-.modal-content {
-  position: relative;
-  width: min(900px,100%);
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  overflow: hidden;
-}
-
-.modal-content img,
-.modal-content video {
-  width: 100%;
-  max-height: 78vh;
-  display: block;
-  object-fit: contain;
-  background: #000;
-}
-
-.close {
-  position: absolute;
-  right: 12px;
-  top: 12px;
-  width: 38px;
-  height: 38px;
-  border: 0;
-  border-radius: 50%;
-  background: #101622;
-  color: white;
-  font-size: 22px;
-  cursor: pointer;
-  z-index: 2;
-}
-
-.reveal {
-  opacity: 0;
-  transform: translateY(25px);
-  transition: .7s ease;
-}
-
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-@media(max-width:850px) {
-  .hero-grid,.about-grid { grid-template-columns: 1fr; }
-  .hero-grid { gap: 55px; }
-  .profile-wrap { width: 75%; }
-  .gallery { grid-template-columns: repeat(2,1fr); }
-  .service-grid { grid-template-columns: repeat(2,1fr); }
-}
-
-@media(max-width:600px) {
-  .container,.nav-inner { width: 90%; }
-  .nav-inner { height: 68px; }
-  .menu-btn { display: block; }
-  .nav-links {
-    display: none;
-    position: absolute;
-    top: 68px;
-    left: 0;
-    width: 100%;
-    padding: 25px 5%;
-    background: #101622;
-    flex-direction: column;
-    gap: 22px;
-  }
-  .nav-links.open { display: flex; }
-  .hero { padding-top: 120px; }
-  .hero h1 { letter-spacing: -2px; }
-  .profile-wrap { width: 85%; }
-  .profile-label { left: -15px; }
-  section { padding: 75px 0; }
-  .gallery,.service-grid { grid-template-columns: 1fr; }
-  .cv-box { flex-direction: column; align-items: flex-start; padding: 27px; }
-}
-</style>
-</head>
-
-<body>
-
-<!-- NAVIGATION -->
-<nav>
-  <div class="nav-inner">
-    <a class="logo" href="#home">CREATIVE<span>.</span></a>
-
-    <button class="menu-btn" id="menuBtn">☰</button>
-
-    <div class="nav-links" id="navLinks">
-      <a href="#home">HOME</a>
-      <a href="#about">ABOUT</a>
-      <a href="#portfolio">PORTFOLIO</a>
-      <a href="#services">SERVICES</a>
-      <a href="#contact">CONTACT</a>
-    </div>
-  </div>
-</nav>
-
-<!-- HERO -->
-<header class="hero" id="home">
-  <div class="container hero-grid">
-
-    <div>
-      <div class="availability">
-        <span class="dot"></span>
-        AVAILABLE FOR PROJECT
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio | Video Editor & Designer</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --bg: #022167;
+        --surface: #0b0f0c;
+        --surface2: #151e2d;
+        --blue: #3985ff;
+        --blue2: #134ce8;
+        --white: #f5f5f5;
+        --muted: #f5f6f9;
+        --border: rgba(0, 238, 255, 0.09);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background: var(--bg);
+        color: var(--white);
+        font-family: "Inter", sans-serif;
+        overflow-x: hidden;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      .container {
+        width: 86%;
+        max-width: 1250px;
+        margin: auto;
+      }
+
+      nav {
+        position: fixed;
+        z-index: 100;
+        top: 0;
+        width: 100%;
+        background: rgba(8, 11, 18, 0.88);
+        backdrop-filter: blur(18px);
+        border-bottom: 1px solid var(--border);
+      }
+
+      .nav-inner {
+        width: 86%;
+        max-width: 1250px;
+        margin: auto;
+        height: 78px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .logo {
+        font-size: 21px;
+        font-weight: 900;
+        letter-spacing: -1px;
+      }
+
+      .logo span {
+        color: var(--blue);
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 30px;
+      }
+
+      .nav-links a {
+        font-size: 12px;
+        color: var(--muted);
+        transition: 0.3s;
+      }
+
+      .nav-links a:hover {
+        color: var(--blue2);
+      }
+
+      .menu-btn {
+        display: none;
+        background: none;
+        border: 0;
+        color: white;
+        font-size: 25px;
+        cursor: pointer;
+      }
+
+      /* HERO */
+
+      .hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        padding: 140px 0 90px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        width: 600px;
+        height: 600px;
+        border-radius: 50%;
+        background: #1764ff;
+        filter: blur(180px);
+        opacity: 0.15;
+        top: 5%;
+        right: -15%;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 65px;
+        align-items: center;
+        position: relative;
+      }
+
+      .availability {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        border: 1px solid var(--border);
+        padding: 11px 17px;
+        border-radius: 30px;
+        color: #b6c7e4;
+        font-size: 11px;
+        background: #111a29;
+      }
+
+      .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #43dc91;
+        box-shadow: 0 0 12px #43dc91;
+      }
+
+      .hero h1 {
+        font-size: clamp(43px, 6vw, 78px);
+        letter-spacing: -4px;
+        line-height: 1.06;
+        margin: 30px 0 22px;
+        font-weight: 900;
+      }
+
+      .hero h1 span {
+        color: var(--blue);
+      }
+
+      .hero-desc {
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.9;
+        max-width: 570px;
+      }
+
+      .hero-actions {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+        margin-top: 33px;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 15px 23px;
+        border-radius: 8px;
+        font-size: 12px;
+        font-weight: 700;
+        transition: 0.3s;
+        cursor: pointer;
+      }
+
+      .btn-primary {
+        background: var(--blue);
+        color: white;
+      }
+
+      .btn-primary:hover {
+        background: #1765e8;
+        transform: translateY(-3px);
+        box-shadow: 0 8px 30px #3985ff44;
+      }
+
+      .btn-outline {
+        border: 1px solid var(--border);
+        color: white;
+      }
+
+      .btn-outline:hover {
+        border-color: var(--blue);
+        color: var(--blue2);
+      }
+
+      .profile-wrap {
+        position: relative;
+        max-width: 390px;
+        margin: auto;
+      }
+
+      .profile-box {
+        width: 100%;
+        aspect-ratio: 4 / 5;
+        border-radius: 22px;
+        overflow: hidden;
+        border: 1px solid #3985ff66;
+        background: linear-gradient(145deg, #182d50, #111622);
+      }
+
+      .profile-box img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .profile-label {
+        position: absolute;
+        bottom: 20px;
+        left: -35px;
+        padding: 17px 22px;
+        background: #151e2df0;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        box-shadow: 0 10px 40px #0008;
+      }
+
+      .profile-label strong {
+        font-size: 13px;
+      }
+      .profile-label p {
+        font-size: 10px;
+        color: var(--muted);
+        margin-top: 5px;
+      }
+
+      /* GENERAL */
+
+      section {
+        padding: 105px 0;
+      }
+
+      .section-label {
+        color: var(--blue2);
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 3px;
+        margin-bottom: 15px;
+      }
+
+      .section-title {
+        font-size: clamp(30px, 4vw, 45px);
+        letter-spacing: -2px;
+        font-weight: 800;
+      }
+
+      .section-desc {
+        font-size: 13px;
+        line-height: 1.8;
+        color: var(--muted);
+        margin-top: 14px;
+      }
+
+      .heading {
+        margin-bottom: 42px;
+      }
+
+      /* ABOUT */
+
+      .about {
+        background: var(--surface);
+      }
+
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 70px;
+        align-items: center;
+      }
+
+      .about-text p {
+        color: var(--muted);
+        line-height: 2;
+        font-size: 13px;
+        margin-top: 20px;
+      }
+
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        margin-top: 28px;
+      }
+
+      .stat {
+        background: var(--surface2);
+        padding: 23px;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+      }
+
+      .stat h3 {
+        font-size: 29px;
+        color: var(--blue2);
+      }
+
+      .stat p {
+        font-size: 11px;
+        color: var(--muted);
+        margin-top: 6px;
+      }
+
+      .skills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 25px;
+      }
+
+      .skill {
+        padding: 13px 17px;
+        background: var(--surface2);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        font-size: 12px;
+        color: #c9d4e5;
+      }
+
+      /* PORTFOLIO */
+
+      .tabs {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 30px;
+        flex-wrap: wrap;
+      }
+
+      .tab {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        color: var(--muted);
+        padding: 12px 21px;
+        border-radius: 7px;
+        cursor: pointer;
+        font-size: 12px;
+      }
+
+      .tab.active {
+        background: var(--blue);
+        color: white;
+        border-color: var(--blue);
+      }
+
+      .gallery {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 22px;
+      }
+
+      .work-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 13px;
+        overflow: hidden;
+        transition: 0.3s;
+      }
+
+      .work-card:hover {
+        transform: translateY(-7px);
+        border-color: var(--blue);
+      }
+
+      .work-image {
+        position: relative;
+        aspect-ratio: 4/3;
+        background: var(--surface2);
+        overflow: hidden;
+      }
+
+      .work-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: 0.5s;
+      }
+
+      .work-card:hover img {
+        transform: scale(1.06);
+      }
+
+      .play {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 52px;
+        height: 52px;
+        border-radius: 50%;
+        background: #3985ffeb;
+        display: grid;
+        place-items: center;
+        font-size: 20px;
+        cursor: pointer;
+        border: 0;
+        color: white;
+      }
+
+      .work-info {
+        padding: 19px;
+      }
+
+      .work-info h3 {
+        font-size: 14px;
+        margin-bottom: 9px;
+      }
+
+      .work-info p {
+        font-size: 11px;
+        color: var(--muted);
+      }
+
+      .work-card[hidden] {
+        display: none;
+      }
+
+      /* SERVICES */
+
+      .services {
+        background: var(--surface);
+      }
+
+      .service-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+
+      .service-card {
+        padding: 30px;
+        background: var(--surface2);
+        border: 1px solid var(--border);
+        border-radius: 13px;
+        transition: 0.3s;
+      }
+
+      .service-card:hover {
+        border-color: var(--blue);
+        transform: translateY(-5px);
+      }
+
+      .service-icon {
+        font-size: 27px;
+        color: var(--blue2);
+      }
+
+      .service-card h3 {
+        margin: 23px 0 12px;
+        font-size: 16px;
+      }
+
+      .service-card p {
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.8;
+      }
+
+      /* CV */
+
+      .cv-box {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 30px;
+        padding: 40px;
+        border-radius: 16px;
+        background: linear-gradient(110deg, #13294b, #101724);
+        border: 1px solid #3985ff55;
+      }
+
+      .cv-box p {
+        color: #b4c3d9;
+        font-size: 12px;
+        line-height: 1.8;
+        margin-top: 12px;
+      }
+
+      /* CONTACT */
+
+      .contact {
+        background: var(--surface);
+        text-align: center;
+      }
+
+      .contact .section-desc {
+        max-width: 500px;
+        margin: 15px auto 25px;
+      }
+
+      .contact-links {
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      /* FOOTER */
+
+      footer {
+        padding: 28px 0;
+        text-align: center;
+        border-top: 1px solid var(--border);
+        color: var(--muted);
+        font-size: 11px;
+      }
+
+      /* MODAL */
+
+      .modal {
+        display: none;
+        position: fixed;
+        inset: 0;
+        z-index: 200;
+        background: #000e;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+      }
+
+      .modal.show {
+        display: flex;
+      }
+
+      .modal-content {
+        position: relative;
+        width: min(900px, 100%);
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        overflow: hidden;
+      }
+
+      .modal-content img,
+      .modal-content video {
+        width: 100%;
+        max-height: 78vh;
+        display: block;
+        object-fit: contain;
+        background: #000;
+      }
+
+      .close {
+        position: absolute;
+        right: 12px;
+        top: 12px;
+        width: 38px;
+        height: 38px;
+        border: 0;
+        border-radius: 50%;
+        background: #101622;
+        color: white;
+        font-size: 22px;
+        cursor: pointer;
+        z-index: 2;
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(25px);
+        transition: 0.7s ease;
+      }
+
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      @media (max-width: 850px) {
+        .hero-grid,
+        .about-grid {
+          grid-template-columns: 1fr;
+        }
+        .hero-grid {
+          gap: 55px;
+        }
+        .profile-wrap {
+          width: 75%;
+        }
+        .gallery {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .service-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 600px) {
+        .container,
+        .nav-inner {
+          width: 90%;
+        }
+        .nav-inner {
+          height: 68px;
+        }
+        .menu-btn {
+          display: block;
+        }
+        .nav-links {
+          display: none;
+          position: absolute;
+          top: 68px;
+          left: 0;
+          width: 100%;
+          padding: 25px 5%;
+          background: #101622;
+          flex-direction: column;
+          gap: 22px;
+        }
+        .nav-links.open {
+          display: flex;
+        }
+        .hero {
+          padding-top: 120px;
+        }
+        .hero h1 {
+          letter-spacing: -2px;
+        }
+        .profile-wrap {
+          width: 85%;
+        }
+        .profile-label {
+          left: -15px;
+        }
+        section {
+          padding: 75px 0;
+        }
+        .gallery,
+        .service-grid {
+          grid-template-columns: 1fr;
+        }
+        .cv-box {
+          flex-direction: column;
+          align-items: flex-start;
+          padding: 27px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- NAVIGATION -->
+    <nav>
+      <div class="nav-inner">
+        <a class="logo" href="#home">CREATIVE<span>.</span></a>
+
+        <button class="menu-btn" id="menuBtn">☰</button>
+
+        <div class="nav-links" id="navLinks">
+          <a href="#home">HOME</a>
+          <a href="#about">ABOUT</a>
+          <a href="#portfolio">PORTFOLIO</a>
+          <a href="#services">SERVICES</a>
+          <a href="#contact">CONTACT</a>
+        </div>
       </div>
+    </nav>
 
-      <h1>
-        Creative Mind.<br>
-        <span>Visual Impact.</span>
-      </h1>
+    <!-- HERO -->
+    <header class="hero" id="home">
+      <div class="container hero-grid">
+        <div>
+          <div class="availability">
+            <span class="dot"></span>
+            AVAILABLE FOR PROJECT
+          </div>
 
-      <p class="hero-desc">
-        Halo, saya seorang Video Editor & Graphic Designer.
-        Mengubah ide menjadi karya visual yang kreatif,
-        menarik, dan memiliki karakter.
-      </p>
+          <h1>
+            Creative Mind.<br />
+            <span>Visual Impact.</span>
+          </h1>
 
-      <div class="hero-actions">
-        <a href="#portfolio" class="btn btn-primary">
-          EXPLORE PORTFOLIO ↗
-        </a>
+          <p class="hero-desc">
+            Halo, saya Ahmad Ridho Syahputra seorang Video Editor & Graphic
+            Designer. Mengubah ide menjadi karya visual yang kreatif, menarik,
+            dan memiliki karakter.
+          </p>
 
-        <a href="#contact" class="btn btn-outline">
-          LET'S TALK
-        </a>
+          <div class="hero-actions">
+            <a href="#portfolio" class="btn btn-primary">
+              EXPLORE PORTFOLIO ↗
+            </a>
+
+            <a href="#contact" class="btn btn-outline"> LET'S TALK </a>
+          </div>
+        </div>
+
+        <div class="profile-wrap">
+          <div class="profile-box">
+            <img src="assets/images/profile.jpg" alt="Foto profil" />
+          </div>
+
+          <div class="profile-label">
+            <strong>Video Editor & Designer</strong>
+            <p>3 Years of Creative Experience</p>
+          </div>
+        </div>
       </div>
-    </div>
+    </header>
 
-    <div class="profile-wrap">
-      <div class="profile-box">
-        <img src="assets/profile.jpg" alt="Foto profil">
+    <!-- ABOUT -->
+    <section class="about" id="about">
+      <div class="container about-grid">
+        <div class="about-text reveal">
+          <div class="section-label">01 — ABOUT ME</div>
+          <h2 class="section-title">Behind The<br />Creative Work.</h2>
+
+          <p>
+            Saya adalah seorang Video Editor dan Graphic Designer dengan
+            pengalaman 3 tahun sebagai editor full-time dan freelance. Memiliki
+            ketertarikan pada dunia visual dan digital creative.
+          </p>
+
+          <p>
+            Terbiasa membuat video promosi, konten TikTok, Instagram Reels,
+            desain poster, social media feed, hingga berbagai kebutuhan visual
+            untuk brand.
+          </p>
+
+          <div class="skills">
+            <div class="skill">Adobe Premiere Pro</div>
+            <div class="skill">CapCut</div>
+            <div class="skill">Canva</div>
+            <div class="skill">Video Editing</div>
+            <div class="skill">Graphic Design</div>
+            <div class="skill">Social Media</div>
+          </div>
+        </div>
+
+        <div class="stats reveal">
+          <div class="stat">
+            <h3>03+</h3>
+            <p>Years Experience</p>
+          </div>
+          <div class="stat">
+            <h3>02</h3>
+            <p>Creative Skills</p>
+          </div>
+          <div class="stat">
+            <h3>100%</h3>
+            <p>Creative Passion</p>
+          </div>
+          <div class="stat">
+            <h3>∞</h3>
+            <p>Creative Ideas</p>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <div class="profile-label">
-        <strong>Video Editor & Designer</strong>
-        <p>3 Years of Creative Experience</p>
+    <!-- PORTFOLIO -->
+    <section id="portfolio">
+      <div class="container">
+        <div class="heading reveal">
+          <div class="section-label">02 — MY WORK</div>
+          <h2 class="section-title">Selected Projects.</h2>
+          <p class="section-desc">
+            Beberapa karya pilihan dari project yang pernah saya kerjakan.
+          </p>
+        </div>
+
+        <div class="tabs">
+          <button class="tab active" data-filter="all">All Works</button>
+          <button class="tab" data-filter="video">Video Editing</button>
+          <button class="tab" data-filter="design">Graphic Design</button>
+        </div>
+
+        <div class="gallery">
+          <<!-- VIDEO 1 -->
+          <article class="work-card" data-category="video">
+            <div class="work-image">
+              <video
+                src="assets/videos/video-1.mp4"
+                preload="metadata"
+                muted
+                playsinline
+                style="width: 100%; height: 100%; object-fit: cover"
+              ></video>
+
+              <button
+                class="play"
+                data-type="video"
+                data-src="assets/videos/video-1.mp4"
+              >
+                ▶
+              </button>
+            </div>
+
+            <div class="work-info">
+              <h3>Product Commercial</h3>
+              <p>Video Editing · Product Promotion</p>
+            </div>
+          </article>
+
+          <!-- VIDEO 2 -->
+          <article class="work-card" data-category="video">
+            <div class="work-image">
+              <img src="assets/video-2.jpg" alt="Video project 2" />
+              <button
+                class="play"
+                data-type="video"
+                data-src="assets/video-2.mp4"
+              >
+                ▶
+              </button>
+            </div>
+            <div class="work-info">
+              <h3>Social Media Content</h3>
+              <p>TikTok · Instagram Reels</p>
+            </div>
+          </article>
+
+          <!-- VIDEO 3 -->
+          <article class="work-card" data-category="video">
+            <div class="work-image">
+              <img src="assets/video-3.jpg" alt="Video project 3" />
+              <button
+                class="play"
+                data-type="video"
+                data-src="assets/video-3.mp4"
+              >
+                ▶
+              </button>
+            </div>
+            <div class="work-info">
+              <h3>Brand Promotion</h3>
+              <p>Commercial · Creative Editing</p>
+            </div>
+          </article>
+
+          <!-- DESIGN 1 -->
+          <article class="work-card" data-category="design">
+            <div class="work-image">
+              <img src="assets/design-1.jpg" alt="Design project 1" />
+              <button
+                class="play"
+                data-type="image"
+                data-src="assets/design-1.jpg"
+              >
+                ↗
+              </button>
+            </div>
+            <div class="work-info">
+              <h3>Social Media Design</h3>
+              <p>Graphic Design · Instagram Feed</p>
+            </div>
+          </article>
+
+          <!-- DESIGN 2 -->
+          <article class="work-card" data-category="design">
+            <div class="work-image">
+              <img src="assets/design-2.jpg" alt="Design project 2" />
+              <button
+                class="play"
+                data-type="image"
+                data-src="assets/design-2.jpg"
+              >
+                ↗
+              </button>
+            </div>
+            <div class="work-info">
+              <h3>Product Poster</h3>
+              <p>Poster · Product Design</p>
+            </div>
+          </article>
+
+          <!-- DESIGN 3 -->
+          <article class="work-card" data-category="design">
+            <div class="work-image">
+              <img src="assets/design-3.jpg" alt="Design project 3" />
+              <button
+                class="play"
+                data-type="image"
+                data-src="assets/design-3.jpg"
+              >
+                ↗
+              </button>
+            </div>
+            <div class="work-info">
+              <h3>Creative Visual</h3>
+              <p>Branding · Graphic Design</p>
+            </div>
+          </article>
+        </div>
       </div>
-    </div>
+    </section>
 
-  </div>
-</header>
+    <!-- SERVICES -->
+    <section class="services" id="services">
+      <div class="container">
+        <div class="heading reveal">
+          <div class="section-label">03 — WHAT I DO</div>
+          <h2 class="section-title">Creative Services.</h2>
+          <p class="section-desc">
+            Membantu kebutuhan visual dan konten digital bisnis Anda.
+          </p>
+        </div>
 
-<!-- ABOUT -->
-<section class="about" id="about">
-  <div class="container about-grid">
+        <div class="service-grid">
+          <div class="service-card">
+            <div class="service-icon">▶</div>
+            <h3>Video Editing</h3>
+            <p>
+              Editing video promosi, TikTok, Reels, cinematic video, dan konten
+              digital.
+            </p>
+          </div>
 
-    <div class="about-text reveal">
-      <div class="section-label">01 — ABOUT ME</div>
-      <h2 class="section-title">Behind The<br>Creative Work.</h2>
+          <div class="service-card">
+            <div class="service-icon">✳</div>
+            <h3>Graphic Design</h3>
+            <p>
+              Desain poster, social media feed, banner, dan kebutuhan visual
+              brand.
+            </p>
+          </div>
 
-      <p>
-        Saya adalah seorang Video Editor dan Graphic Designer
-        dengan pengalaman 3 tahun sebagai editor full-time
-        dan freelance. Memiliki ketertarikan pada dunia visual
-        dan digital creative.
-      </p>
-
-      <p>
-        Terbiasa membuat video promosi, konten TikTok,
-        Instagram Reels, desain poster, social media feed,
-        hingga berbagai kebutuhan visual untuk brand.
-      </p>
-
-      <div class="skills">
-        <div class="skill">Adobe Premiere Pro</div>
-        <div class="skill">CapCut</div>
-        <div class="skill">Canva</div>
-        <div class="skill">Video Editing</div>
-        <div class="skill">Graphic Design</div>
-        <div class="skill">Social Media</div>
+          <div class="service-card">
+            <div class="service-icon">◈</div>
+            <h3>Creative Content</h3>
+            <p>
+              Membuat konten kreatif untuk kebutuhan promosi dan pemasaran media
+              sosial.
+            </p>
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
 
-    <div class="stats reveal">
-      <div class="stat">
-        <h3>03+</h3>
-        <p>Years Experience</p>
+    <!-- CV -->
+    <section id="cv">
+      <div class="container">
+        <div class="cv-box reveal">
+          <div>
+            <div class="section-label">04 — MY RESUME</div>
+            <h2 class="section-title">Want To Know More?</h2>
+            <p>
+              Lihat pengalaman kerja, kemampuan, dan informasi profesional saya
+              melalui CV.
+            </p>
+          </div>
+
+          <a href="assets/CV.pdf" download class="btn btn-primary">
+            DOWNLOAD MY CV ↓
+          </a>
+        </div>
       </div>
-      <div class="stat">
-        <h3>02</h3>
-        <p>Creative Skills</p>
-      </div>
-      <div class="stat">
-        <h3>100%</h3>
-        <p>Creative Passion</p>
-      </div>
-      <div class="stat">
-        <h3>∞</h3>
-        <p>Creative Ideas</p>
-      </div>
-    </div>
+    </section>
 
-  </div>
-</section>
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+      <div class="container reveal">
+        <div class="section-label">05 — GET IN TOUCH</div>
+        <h2 class="section-title">
+          Let's Create Something<br /><span style="color: #3985ff"
+            >Amazing Together.</span
+          >
+        </h2>
 
-<!-- PORTFOLIO -->
-<section id="portfolio">
-  <div class="container">
-
-    <div class="heading reveal">
-      <div class="section-label">02 — MY WORK</div>
-      <h2 class="section-title">Selected Projects.</h2>
-      <p class="section-desc">
-        Beberapa karya pilihan dari project yang pernah saya kerjakan.
-      </p>
-    </div>
-
-    <div class="tabs">
-      <button class="tab active" data-filter="all">All Works</button>
-      <button class="tab" data-filter="video">Video Editing</button>
-      <button class="tab" data-filter="design">Graphic Design</button>
-    </div>
-
-    <div class="gallery">
-
-      <!-- VIDEO 1 -->
-      <article class="work-card" data-category="video">
-        <div class="work-image">
-          <img src="assets/video-1.jpg" alt="Video project 1">
-          <button class="play" data-type="video"
-            data-src="assets/video-1.mp4">▶</button>
-        </div>
-        <div class="work-info">
-          <h3>Product Commercial</h3>
-          <p>Video Editing · Product Promotion</p>
-        </div>
-      </article>
-
-      <!-- VIDEO 2 -->
-      <article class="work-card" data-category="video">
-        <div class="work-image">
-          <img src="assets/video-2.jpg" alt="Video project 2">
-          <button class="play" data-type="video"
-            data-src="assets/video-2.mp4">▶</button>
-        </div>
-        <div class="work-info">
-          <h3>Social Media Content</h3>
-          <p>TikTok · Instagram Reels</p>
-        </div>
-      </article>
-
-      <!-- VIDEO 3 -->
-      <article class="work-card" data-category="video">
-        <div class="work-image">
-          <img src="assets/video-3.jpg" alt="Video project 3">
-          <button class="play" data-type="video"
-            data-src="assets/video-3.mp4">▶</button>
-        </div>
-        <div class="work-info">
-          <h3>Brand Promotion</h3>
-          <p>Commercial · Creative Editing</p>
-        </div>
-      </article>
-
-      <!-- DESIGN 1 -->
-      <article class="work-card" data-category="design">
-        <div class="work-image">
-          <img src="assets/design-1.jpg" alt="Design project 1">
-          <button class="play" data-type="image"
-            data-src="assets/design-1.jpg">↗</button>
-        </div>
-        <div class="work-info">
-          <h3>Social Media Design</h3>
-          <p>Graphic Design · Instagram Feed</p>
-        </div>
-      </article>
-
-      <!-- DESIGN 2 -->
-      <article class="work-card" data-category="design">
-        <div class="work-image">
-          <img src="assets/design-2.jpg" alt="Design project 2">
-          <button class="play" data-type="image"
-            data-src="assets/design-2.jpg">↗</button>
-        </div>
-        <div class="work-info">
-          <h3>Product Poster</h3>
-          <p>Poster · Product Design</p>
-        </div>
-      </article>
-
-      <!-- DESIGN 3 -->
-      <article class="work-card" data-category="design">
-        <div class="work-image">
-          <img src="assets/design-3.jpg" alt="Design project 3">
-          <button class="play" data-type="image"
-            data-src="assets/design-3.jpg">↗</button>
-        </div>
-        <div class="work-info">
-          <h3>Creative Visual</h3>
-          <p>Branding · Graphic Design</p>
-        </div>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-<!-- SERVICES -->
-<section class="services" id="services">
-  <div class="container">
-
-    <div class="heading reveal">
-      <div class="section-label">03 — WHAT I DO</div>
-      <h2 class="section-title">Creative Services.</h2>
-      <p class="section-desc">
-        Membantu kebutuhan visual dan konten digital bisnis Anda.
-      </p>
-    </div>
-
-    <div class="service-grid">
-
-      <div class="service-card">
-        <div class="service-icon">▶</div>
-        <h3>Video Editing</h3>
-        <p>
-          Editing video promosi, TikTok, Reels,
-          cinematic video, dan konten digital.
+        <p class="section-desc">
+          Punya project menarik atau ingin berkolaborasi? Saya siap membantu
+          mewujudkan ide kreatif Anda.
         </p>
+
+        <div class="contact-links">
+          <a
+            href="https://wa.me/6281234567890"
+            target="_blank"
+            class="btn btn-primary"
+          >
+            WHATSAPP ↗
+          </a>
+
+          <a href="mailto:emailkamu@gmail.com" class="btn btn-outline">
+            SEND EMAIL ↗
+          </a>
+
+          <a
+            href="https://instagram.com/username"
+            target="_blank"
+            class="btn btn-outline"
+          >
+            INSTAGRAM ↗
+          </a>
+        </div>
       </div>
+    </section>
 
-      <div class="service-card">
-        <div class="service-icon">✳</div>
-        <h3>Graphic Design</h3>
-        <p>
-          Desain poster, social media feed,
-          banner, dan kebutuhan visual brand.
-        </p>
+    <footer>© 2026 CREATIVE PORTFOLIO — Designed with Creativity.</footer>
+
+    <!-- INTERACTIVE MODAL -->
+    <div class="modal" id="mediaModal">
+      <div class="modal-content">
+        <button class="close" id="closeModal">×</button>
+        <div id="mediaContent"></div>
       </div>
-
-      <div class="service-card">
-        <div class="service-icon">◈</div>
-        <h3>Creative Content</h3>
-        <p>
-          Membuat konten kreatif untuk kebutuhan
-          promosi dan pemasaran media sosial.
-        </p>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- CV -->
-<section id="cv">
-  <div class="container">
-    <div class="cv-box reveal">
-
-      <div>
-        <div class="section-label">04 — MY RESUME</div>
-        <h2 class="section-title">Want To Know More?</h2>
-        <p>
-          Lihat pengalaman kerja, kemampuan, dan informasi
-          profesional saya melalui CV.
-        </p>
-      </div>
-
-      <a href="assets/CV.pdf" download class="btn btn-primary">
-        DOWNLOAD MY CV ↓
-      </a>
-
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section class="contact" id="contact">
-  <div class="container reveal">
-
-    <div class="section-label">05 — GET IN TOUCH</div>
-    <h2 class="section-title">Let's Create Something<br><span style="color:#3985ff">Amazing Together.</span></h2>
-
-    <p class="section-desc">
-      Punya project menarik atau ingin berkolaborasi?
-      Saya siap membantu mewujudkan ide kreatif Anda.
-    </p>
-
-    <div class="contact-links">
-      <a href="https://wa.me/6281234567890"
-         target="_blank" class="btn btn-primary">
-        WHATSAPP ↗
-      </a>
-
-      <a href="mailto:emailkamu@gmail.com"
-         class="btn btn-outline">
-        SEND EMAIL ↗
-      </a>
-
-      <a href="https://instagram.com/username"
-         target="_blank" class="btn btn-outline">
-        INSTAGRAM ↗
-      </a>
     </div>
 
-  </div>
-</section>
+    <script>
+      // MOBILE MENU
+      const menuBtn = document.getElementById("menuBtn");
+      const navLinks = document.getElementById("navLinks");
 
-<footer>
-  © 2026 CREATIVE PORTFOLIO — Designed with Creativity.
-</footer>
+      menuBtn.addEventListener("click", () => {
+        navLinks.classList.toggle("open");
+      });
 
-<!-- INTERACTIVE MODAL -->
-<div class="modal" id="mediaModal">
-  <div class="modal-content">
-    <button class="close" id="closeModal">×</button>
-    <div id="mediaContent"></div>
-  </div>
-</div>
+      navLinks.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          navLinks.classList.remove("open");
+        });
+      });
 
-<script>
+      // PORTFOLIO FILTER
+      const tabs = document.querySelectorAll(".tab");
+      const cards = document.querySelectorAll(".work-card");
 
-// MOBILE MENU
-const menuBtn = document.getElementById('menuBtn');
-const navLinks = document.getElementById('navLinks');
+      tabs.forEach((tab) => {
+        tab.addEventListener("click", () => {
+          tabs.forEach((t) => t.classList.remove("active"));
+          tab.classList.add("active");
 
-menuBtn.addEventListener('click', () => {
-  navLinks.classList.toggle('open');
-});
+          const filter = tab.dataset.filter;
 
-navLinks.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => {
-    navLinks.classList.remove('open');
-  });
-});
+          cards.forEach((card) => {
+            card.hidden = filter !== "all" && card.dataset.category !== filter;
+          });
+        });
+      });
 
-// PORTFOLIO FILTER
-const tabs = document.querySelectorAll('.tab');
-const cards = document.querySelectorAll('.work-card');
+      // VIDEO AND IMAGE MODAL
+      const modal = document.getElementById("mediaModal");
+      const mediaContent = document.getElementById("mediaContent");
 
-tabs.forEach(tab => {
-  tab.addEventListener('click', () => {
+      document.querySelectorAll(".play").forEach((button) => {
+        button.addEventListener("click", () => {
+          const src = button.dataset.src;
+          const type = button.dataset.type;
 
-    tabs.forEach(t => t.classList.remove('active'));
-    tab.classList.add('active');
-
-    const filter = tab.dataset.filter;
-
-    cards.forEach(card => {
-      card.hidden =
-        filter !== 'all' &&
-        card.dataset.category !== filter;
-    });
-  });
-});
-
-// VIDEO AND IMAGE MODAL
-const modal = document.getElementById('mediaModal');
-const mediaContent = document.getElementById('mediaContent');
-
-document.querySelectorAll('.play').forEach(button => {
-
-  button.addEventListener('click', () => {
-
-    const src = button.dataset.src;
-    const type = button.dataset.type;
-
-    if (type === 'video') {
-      mediaContent.innerHTML = `
+          if (type === "video") {
+            mediaContent.innerHTML = `
         <video controls autoplay playsinline>
           <source src="${src}" type="video/mp4">
           Browser tidak mendukung video.
         </video>`;
-    } else {
-      const image = document.createElement('img');
-      image.src = src;
-      image.alt = 'Portfolio design';
-      mediaContent.replaceChildren(image);
-    }
+          } else {
+            const image = document.createElement("img");
+            image.src = src;
+            image.alt = "Portfolio design";
+            mediaContent.replaceChildren(image);
+          }
 
-    modal.classList.add('show');
-  });
+          modal.classList.add("show");
+        });
+      });
 
-});
+      function closeModal() {
+        modal.classList.remove("show");
 
-function closeModal() {
-  modal.classList.remove('show');
+        const video = mediaContent.querySelector("video");
+        if (video) video.pause();
 
-  const video = mediaContent.querySelector('video');
-  if (video) video.pause();
+        mediaContent.replaceChildren();
+      }
 
-  mediaContent.replaceChildren();
-}
+      document
+        .getElementById("closeModal")
+        .addEventListener("click", closeModal);
 
-document.getElementById('closeModal')
-  .addEventListener('click', closeModal);
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal) closeModal();
+      });
 
-modal.addEventListener('click', e => {
-  if (e.target === modal) closeModal();
-});
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeModal();
+      });
 
-document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') closeModal();
-});
+      // SCROLL ANIMATION
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.12 },
+      );
 
-// SCROLL ANIMATION
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      observer.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.12 });
-
-document.querySelectorAll('.reveal').forEach(el => {
-  observer.observe(el);
-});
-
-</script>
-
-</body>
+      document.querySelectorAll(".reveal").forEach((el) => {
+        observer.observe(el);
+      });
+    </script>
+  </body>
 </html>
-
